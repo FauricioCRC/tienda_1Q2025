@@ -1,0 +1,46 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Feb 4, 2025, 6:37:51 PM
+    Author     : fauri
+*/
+
+.parrafoRojo {
+    color: red;
+}
+
+.parrafoVerde {
+    color: green;
+}
+
+div > p {
+    font-size: 50px;
+}
+
+.ejemploPadding {
+    padding: 10px;
+    padding: 10px 20px;
+    padding: 10px 20px 30px;
+    padding: 10px 20px 30px 40px;
+}
+
+a {
+    font-size: 20px;
+    
+}
+
+a:hover{
+    color: red;
+    transition: 2s;
+}
+
+a:visited {
+    color: green;
+}
+
+a:active {
+    color: white;
+    background-color: black;
+}
