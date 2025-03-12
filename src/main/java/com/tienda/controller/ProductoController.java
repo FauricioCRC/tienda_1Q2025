@@ -35,9 +35,9 @@ public class ProductoController {
 
         model.addAttribute("productos", productos);
         model.addAttribute("totalProductos", productos.size());
-        model.addAttribute("categoiras", listaCategoriasActivas);
+        model.addAttribute("categorias", listaCategoriasActivas);
         
-        return "/producto/listado";
+        return "producto/listado";
     }
 
     @PostMapping("/guardar")
@@ -70,4 +70,5 @@ public class ProductoController {
         return "/producto/modifica";
     }
 
+    
 }

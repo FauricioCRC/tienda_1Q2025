@@ -40,9 +40,9 @@
                               method="POST" class="was-validated" enctype="multipart/form-data">
                             <div class="modal-body">
                                 <div class="mb-3">
-                                    <label for="idCategoria">[[#{producto.categoria}]]</label>
+                                    <label for="categoria.idCategoria">[[#{producto.categoria}]]</label>
                                     <!--                                    <input type="number" class="form-control" name="idCategoria" required="true"/>-->
-                                    <select class="form-select" name="idCategoria">
+                                    <select class="form-select" name="categoria.idCategoria">
                                         <option th:each="c : ${categorias}" th:value="${c.idCategoria}">[[${c.descripcion}]]</option>
                                     </select>
                                 </div>
@@ -158,9 +158,8 @@
                                             </div>
                                             <div class="card-body">
                                                 <div class="mb-3">
-                                                    <label for="idCategoria">[[#{producto.categoria}]]</label>
-                                                    <!--                                    <input type="number" class="form-control" name="idCategoria" required="true"/>-->
-                                                    <select class="form-select" name="idCategoria" th:field='*{idCategoria}'>
+                                                    <label for="categoria.idCategoria">[[#{producto.categoria}]]</label>
+                                                    <select class="form-select" name="idCategoria" th:field='*{categoria.idCategoria}'>
                                                         <option th:each="c : ${categorias}" th:value="${c.idCategoria}">[[${c.descripcion}]]</option>
                                                     </select>
                                                 </div>

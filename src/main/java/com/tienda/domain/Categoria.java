@@ -22,7 +22,7 @@ public class Categoria implements Serializable {
     private boolean activo;
     
     @OneToMany
-    @JoinColumn(name = "idCategoria", insertable = false, updatable = false)
+    @JoinColumn(name = "idCategoria", insertable = false, updatable = false) //el insertable es para que no trate de insertar productos
     private List<Producto> productos;
     
     public Categoria() {
