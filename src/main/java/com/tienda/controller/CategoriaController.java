@@ -23,11 +23,12 @@ public class CategoriaController {
     private FirebaseStorageServiceImpl firebaseStorageService;
 
     @RequestMapping("/listado")
-    public String page(Model model) { //model es el objeto por el cual yo puedo enviarle datos al front controller para que sean utilizados por la vista
-        var categorias = categoriaService.getCategorias(false);
+    public String page(@RequestParam(value = "description", required = false) String description, Model model) { //model es el objeto por el cual yo puedo enviarle datos al front controller para que sean utilizados por la vista
+        var categorias = description != null ? categoriaService.searchByDescription(description) : categoriaService.getCategorias(false);
 
         model.addAttribute("categorias", categorias);
         model.addAttribute("totalCategorias", categorias.size());
+        model.addAttribute("description", description);
         return "/categoria/listado";
     }
 
@@ -58,5 +59,4 @@ public class CategoriaController {
         model.addAttribute("categoria", categoria);
         return "/categoria/modifica";
     }
-
 }

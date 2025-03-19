@@ -43,4 +43,9 @@ public class CategoriaServiceImpl implements CategoriaService {
         categoriaDao.deleteById(categoria.getIdCategoria());
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public List<Categoria> searchByDescription(String descripcion) {
+        return categoriaDao.findByDescripcionLike(descripcion);
+    }
 }

@@ -8,7 +8,7 @@
     <body>
         <!-- 1 Sección para crear el boton de agregar... llamará a una ventana modal-->
         <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
-            <div class="container">
+            <div class="container" sec:authorize="hasRole('ROLE_ADMIN')">
                 <div class="row">
                     <div class="col-md-3">   
                         <button 
@@ -19,7 +19,15 @@
                             <i class="fas fa-plus"></i> [[#{categoria.agregar}]]
                         </button>
                     </div>
-                </div>
+                    <div class="col-md-3">
+                        <form th:action="@{/categoria/listado}" method="POST" >
+                            <label for="description">Buscar</label>
+                            <input class="" type="text" id="description" th:name="description" th:value="${description}" />
+
+                            <button class="btn btn-primary" type="submit"><i class="fas fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                </div>  
             </div>
         </section>
 
@@ -77,14 +85,14 @@
                                         <tr><th>#</th>
                                             <th>[[#{producto.categoria}]]</th>
                                             <th>[[#{categoria.activo}]]</th>
-                                            <th></th></tr>
+                                            <th sec:authorize="hasRole('ROLE_ADMIN')"></th></tr>
                                     </thead>
                                     <tbody>
                                         <tr th:each="categoria, contador : ${categorias}">
                                             <td>[[${contador.count}]]</td>
                                             <td>[[${categoria.descripcion}]]</td>
                                             <td th:text="${categoria.activo} ? 'Activa' : 'Inactiva'" />
-                                            <td><a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}"
+                                            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}"
                                                    class="btn btn-danger">
                                                     <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
                                                 <a th:href="@{/categoria/modificar/}+${categoria.idCategoria}"

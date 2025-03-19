@@ -2,6 +2,7 @@
 package com.tienda.service;
 import java.util.List;
 import com.tienda.domain.Categoria;
+import org.springframework.data.repository.query.Param;
 
 public interface CategoriaService {
 // Se obtiene un listado de categorias en un List
@@ -17,4 +18,5 @@ public interface CategoriaService {
     // Se elimina el categoria que tiene el id pasado por parámetro
     public void delete(Categoria categoria);
     
+    public List<Categoria> searchByDescription(String descripcion);
 }
